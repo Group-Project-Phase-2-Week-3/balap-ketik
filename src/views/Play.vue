@@ -98,7 +98,7 @@ export default {
         var audio = new Audio(sound);
         audio.play();
       }
-    }
+    },
     prevent: function(e) {
       this.correctWord++;
       if (this.typing.length !== 0) {
