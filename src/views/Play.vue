@@ -142,6 +142,7 @@ export default {
   },
   watch: {
     typing(value) {
+      this.playSound('http://soundbible.com/mp3/Air Plane Ding-SoundBible.com-496729130.mp3')
       for (let i = 0; i < value.length; i++) {
         if (value[i] !== this.text[i]) {
           this.typoIndex = i;

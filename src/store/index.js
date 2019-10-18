@@ -21,7 +21,7 @@ export default new Vuex.Store({
       Swal.fire({
         type: 'Done!',
         title: 'Great....!',
-        text: 'Your wpm is ' + wpm,
+        text: 'Your wpm is ' + wpm.toFixed(0),
         footer: '<a href="/">Home</a>'
       })
     },
