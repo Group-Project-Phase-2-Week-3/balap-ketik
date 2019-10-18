@@ -22,17 +22,13 @@
 
 export default {
   name: 'app',
-  data(){
-    return{
-      playername: ''
-    }
-  },
   components: {
   },
   data () {
     return {
       counter: 0,
-      play: false
+      play: false,
+      playername: ''
     }
   },
   created () {
