@@ -51,9 +51,10 @@ export default {
         }, 1000)
         setTimeout(() => {
           clearInterval(timerId)
-          this.playEnd()
+          // this.playEnd()
+          this.$emit('selesai')
           console.log('GAME FINISH!!')
-        }, 5000)
+        }, 20000)
       }
     }
   }

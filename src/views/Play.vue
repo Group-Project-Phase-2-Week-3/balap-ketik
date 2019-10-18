@@ -11,7 +11,7 @@
           <b-navbar-nav class="ml-auto"></b-navbar-nav>
         </b-collapse>
       </b-navbar>
-      <Countdown/>
+      <Countdown @selesai="finishPlay"/>
       <p>Anda bisa bermain game</p>
       <button @click.prevent="playNow()">play</button>
       <button @click.prevent="finishPlay()">finish</button>
@@ -48,6 +48,7 @@ const wpmdata = db.collection("wpmdata");
 import { mapState, mapMutations } from "vuex";
 import Countdown from '@/components/Countdown'
 
+
 export default {
   name: "Game",
   data() {
@@ -69,7 +70,6 @@ export default {
       .then(_=>{
         this.playStart()
       });
-      
     },
     finishPlay() {
       console.log("Permainan selesai");
@@ -85,7 +85,7 @@ export default {
           });
         })
         .then(() => {
-          this.playEnd()
+          this.playEnd(this.wpm)
           console.log("update selesai");
         })
         .catch(err => {
@@ -93,6 +93,12 @@ export default {
           console.log(err);
         });
     },
+    playSound(sound){
+      if(sound){
+        var audio = new Audio(sound);
+        audio.play();
+      }
+    }
     prevent: function(e) {
       this.correctWord++;
       if (this.typing.length !== 0) {
