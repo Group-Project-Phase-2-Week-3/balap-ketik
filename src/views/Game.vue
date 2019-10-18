@@ -80,14 +80,6 @@ export default {
       const index = Math.round(Math.random() * 13)
       this.text = texts[index].text
     },
-    printDigit: function (e) {
-      // console.log(e.key)
-      // console.log(this.typing.length)
-      /*  if (this.typing[1] !== 'x') {
-        console.log('not x')
-        return false
-      } */
-    },
     prevent: function (e) {
       // console.log(this.typing.length)
       // console.log(this.text)
