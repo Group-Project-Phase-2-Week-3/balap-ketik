@@ -32,8 +32,7 @@ export default new Vuex.Store({
     resetCountdownToGame: function (state) {
       state.gameCountdown = 60
     },
-    setUsername: (state, name) => {
-      console.log(name)
+    createUsername: function (state, name) {
       console.log('fadil')
       state.username = name
     }
