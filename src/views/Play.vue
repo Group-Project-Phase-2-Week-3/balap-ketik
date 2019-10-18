@@ -11,7 +11,7 @@
           <b-navbar-nav class="ml-auto"></b-navbar-nav>
         </b-collapse>
       </b-navbar>
-      <Countdown/>
+      <Countdown @selesai="finishPlay"/>
       <p>Anda bisa bermain game</p>
       <button @click.prevent="playNow()">play</button>
       <button @click.prevent="finishPlay()">finish</button>
@@ -48,6 +48,7 @@ const wpmdata = db.collection("wpmdata");
 import { mapState, mapMutations } from "vuex";
 import Countdown from '@/components/Countdown'
 
+
 export default {
   name: "Game",
   data() {
@@ -69,7 +70,6 @@ export default {
       .then(_=>{
         this.playStart()
       });
-      
     },
     finishPlay() {
       console.log("Permainan selesai");
@@ -85,13 +85,19 @@ export default {
           });
         })
         .then(() => {
-          this.playEnd()
+          this.playEnd(this.wpm)
           console.log("update selesai");
         })
         .catch(err => {
           console.log("data");
           console.log(err);
         });
+    },
+    playSound(sound){
+      if(sound){
+        var audio = new Audio(sound);
+        audio.play();
+      }
     },
     prevent: function(e) {
       this.correctWord++;
@@ -136,6 +142,7 @@ export default {
   },
   watch: {
     typing(value) {
+      this.playSound('http://soundbible.com/mp3/Air Plane Ding-SoundBible.com-496729130.mp3')
       for (let i = 0; i < value.length; i++) {
         if (value[i] !== this.text[i]) {
           this.typoIndex = i;
