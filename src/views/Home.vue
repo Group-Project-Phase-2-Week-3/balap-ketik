@@ -28,7 +28,7 @@ export default {
     return {
       counter: 0,
       play: false,
-      playername: 'asdkadad'
+      playername: ''
     }
   },
   created () {
