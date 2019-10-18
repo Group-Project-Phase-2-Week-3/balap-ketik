@@ -51,8 +51,9 @@ export default {
         }, 1000)
         setTimeout(() => {
           clearInterval(timerId)
+          this.playEnd()
           console.log('GAME FINISH!!')
-        }, 60000)
+        }, 5000)
       }
     }
   }
