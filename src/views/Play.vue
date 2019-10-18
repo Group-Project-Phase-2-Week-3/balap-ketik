@@ -39,6 +39,12 @@ export default {
         console.log("data")
         console.log(err)
       })
+
+      wpmdata.doc('kR4Iem0Ow2SLhz1GWqBm').onSnapshot((doc) => {
+        console.log(doc)
+        console.log(doc.data().wpm)
+      })
+
     }
   }
 }
