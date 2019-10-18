@@ -15,7 +15,7 @@
       <p>Anda bisa bermain game</p>
       <button @click.prevent="playNow()">play</button>
       <button @click.prevent="finishPlay()">finish</button>
-      <b-container class="mt-5" v-if="!startCountdown">
+      <b-container class="mt-5" v-if="startCountdown<=0">
         <b-container class="gamecontainer">
           <b-row class="my-5">
             <div class="paragraph" v-html="outputHTML"></div>
@@ -149,7 +149,6 @@ export default {
     }
   },
   created: function() {
-    console.log(this.$store.state.username)
   }
 };
 </script>

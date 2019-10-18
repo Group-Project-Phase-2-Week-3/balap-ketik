@@ -33,9 +33,8 @@ export default {
     }
   },
   methods: {
-    setPlayername : () => {
-      this.$store.commit('setUsername', this.playername)
-      // this.setUsername(this.playername)
+    setPlayername : function () {
+      this.createUsername(this.playername)
     },
     ...mapMutations(['setUsername'])
   },
