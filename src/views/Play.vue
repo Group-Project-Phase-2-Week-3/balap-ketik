@@ -19,6 +19,7 @@ export default {
     },
     finishPlay(){
       console.log("Permainan selesai")
+      dbtestplay.doc('bvHKUAFUhEW3RjzHsyTd').update
     }
   }
 }

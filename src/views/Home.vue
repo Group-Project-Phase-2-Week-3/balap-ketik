@@ -8,7 +8,7 @@
       <b-container>
         <b-row>
           <b-col col md="6" class="mx-auto">
-            <b-form-input v-model="playername" placeholder="Enter your name"></b-form-input>
+            <b-form-input v-model="playername"  placeholder="Enter your name"></b-form-input>
             <b-button size="lg" class="mt-4 px-5" variant="secondary"><router-link class="play-text" to="/play">PLAY!</router-link></b-button>
           </b-col>
         </b-row>
