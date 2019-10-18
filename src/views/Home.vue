@@ -9,7 +9,7 @@
         <b-row>
           <b-col col md="6" class="mx-auto">
             <b-form-input v-model="playername"  placeholder="Enter your name"></b-form-input>
-            <b-button size="lg" class="mt-4 px-5" variant="secondary"><router-link class="play-text" to="/play">PLAY!</router-link></b-button>
+            <b-button size="lg" class="mt-4 px-5" variant="secondary"><router-link @click="setPlayername" class="play-text" to="/play">PLAY!</router-link></b-button>
           </b-col>
         </b-row>
       </b-container>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: 'app',
@@ -31,6 +32,16 @@ export default {
       playername: ''
     }
   },
+  methods: {
+    setPlayername : () => {
+      this.$store.commit('setUsername', this.playername)
+      // this.setUsername(this.playername)
+    },
+    ...mapMutations(['setUsername'])
+  },
+  computed: {
+    ...mapState(['username'])
+  },
   created () {
     
   }
@@ -38,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Fredoka+One&display=swap');
 body{
   background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/skulls.png')
