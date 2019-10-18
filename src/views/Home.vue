@@ -1,18 +1,32 @@
 <template>
+
   <div id="app">
     <p class="game-title">Balapan Ketik</p>
     <p class="anounce-text">Seberapa cepat anda mengetik dibanding orang lainnya?</p>
     <img alt="Vue logo" width="300px" height="300px" src="../assets/logo.png">
     <div>
-      <b-button size="lg" class="mt-4 px-5" variant="secondary"><router-link class="play-text" to="/play">PLAY!</router-link></b-button>
+      <b-container>
+        <b-row>
+          <b-col col md="6" class="mx-auto">
+            <b-form-input v-model="playername" placeholder="Enter your name"></b-form-input>
+            <b-button size="lg" class="mt-4 px-5" variant="secondary"><router-link class="play-text" to="/play">PLAY!</router-link></b-button>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
   </div>
+  
 </template>
 
 <script>
 
 export default {
   name: 'app',
+  data(){
+    return{
+      playername: ''
+    }
+  },
   components: {
   },
   data () {
@@ -39,7 +53,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 20vh;
+  margin-top:14vh;
 }
 .game-title{
   font-size: 70px;
